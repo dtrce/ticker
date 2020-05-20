@@ -64,7 +64,7 @@ def create_table(symbols)
 
     table = Terminal::Table.new :rows => table_rows, :headings => ["Symbol", "MKT Price", "MKT Change $", "MKT Change %"], :style => { :alignment => :right, :all_separators => true }
     puts table        
-    puts "Last updated: #{Time.now.strftime("%A, %d %b %Y %l:%M %p %Z")}"
+    puts "Last updated: #{Time.now.strftime("%A, %d %b %Y %l:%M:%S %p %Z")}"
     print_legend
     
 end
