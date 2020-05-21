@@ -33,7 +33,9 @@ end
 def calculate_rows(symbols)
     rows = []
     api_url = "https://query1.finance.yahoo.com/v7/finance/quote?lang=en-US&region=US&corsDomain=finance.yahoo.com&symbols=#{symbols}"    
-    http_result = HTTParty.get api_url    
+    http_result = HTTParty.get(api_url, {
+        headers: {"User-Agent" => "Httparty", "cache-control": "public, max-age=1, stale-while-revalidate=9"},        
+      })
 
     http_result["quoteResponse"]["result"].each do |quote|
         rows << format_result(quote)
